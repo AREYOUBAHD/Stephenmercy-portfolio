@@ -128,6 +128,15 @@
     .release-playlist-button{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border:1px solid var(--gold);color:var(--gold-light);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
     .release-playlist-button:hover{background:var(--gold);color:#080808}
 
+  
+    .discography-thumb{position:relative;display:block;width:100%;aspect-ratio:16/6;min-height:190px;max-height:440px;overflow:hidden;margin:0 0 22px;border:1px solid var(--line);background:#080808}
+    .discography-thumb img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.7);transition:transform .35s,filter .35s}
+    .discography-thumb:hover img{transform:scale(1.025);filter:brightness(.85)}
+    .discography-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:space-between;gap:18px;padding:clamp(18px,4vw,38px);background:linear-gradient(90deg,rgba(0,0,0,.68),rgba(0,0,0,.08)),linear-gradient(0deg,rgba(0,0,0,.62),transparent 70%);color:#fff}
+    .discography-thumb-overlay strong{font-size:clamp(19px,3vw,34px);line-height:1.05;letter-spacing:.04em;text-transform:uppercase}
+    .discography-thumb-overlay span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+    @media(max-width:520px){.discography-thumb{aspect-ratio:4/3}.discography-thumb-overlay{flex-direction:column;align-items:flex-start;justify-content:flex-end}}
+
   </style>
 </head>
 <body>
@@ -579,6 +588,10 @@
         <div><div class="kicker">Full discography / YouTube</div><h2 id="youtube-releases-playlist-title">All releases.<br>One place.</h2></div>
         <p class="section-note">Explore Stephen Mercy’s YouTube releases and music videos. Open the official releases page to browse the complete catalogue.</p>
       </div>
+      <a class="discography-thumb" href="https://www.youtube.com/@Stephenmercy/releases" target="_blank" rel="noopener noreferrer" aria-label="Browse all Stephen Mercy YouTube releases">
+        <img src="https://img.youtube.com/vi/wCuHddq4IQ0/maxresdefault.jpg" alt="Stephen Mercy music video thumbnail representing the full discography" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/wCuHddq4IQ0/hqdefault.jpg'">
+        <span class="discography-thumb-overlay"><strong>Stephen Mercy<br>Full Discography</strong><span>Watch all releases ↗</span></span>
+      </a>
       <iframe class="release-playlist-frame" src="https://www.youtube.com/embed?listType=user_uploads&list=Stephenmercy" title="Stephen Mercy YouTube video playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       <div class="release-playlist-actions">
         <a class="release-playlist-button" href="https://www.youtube.com/@Stephenmercy/releases" target="_blank" rel="noopener noreferrer">Browse all official releases ↗</a>
