@@ -122,6 +122,12 @@
     @media(max-width:800px){.youtube-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
     @media(max-width:520px){.youtube-grid{grid-template-columns:1fr}}
 
+  
+    .release-playlist-frame{width:100%;aspect-ratio:16/9;min-height:280px;border:1px solid var(--line);background:#050505;display:block}
+    .release-playlist-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:18px}
+    .release-playlist-button{display:inline-flex;align-items:center;justify-content:center;padding:13px 18px;border:1px solid var(--gold);color:var(--gold-light);font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+    .release-playlist-button:hover{background:var(--gold);color:#080808}
+
   </style>
 </head>
 <body>
@@ -564,6 +570,19 @@
             <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
           </a>
         </article>
+      </div>
+    </section>
+
+
+    <section class="wrap section" id="youtube-releases-playlist" aria-labelledby="youtube-releases-playlist-title">
+      <div class="section-head">
+        <div><div class="kicker">Full discography / YouTube</div><h2 id="youtube-releases-playlist-title">All releases.<br>One place.</h2></div>
+        <p class="section-note">Explore Stephen Mercy’s YouTube releases and music videos. Open the official releases page to browse the complete catalogue.</p>
+      </div>
+      <iframe class="release-playlist-frame" src="https://www.youtube.com/embed?listType=user_uploads&list=Stephenmercy" title="Stephen Mercy YouTube video playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <div class="release-playlist-actions">
+        <a class="release-playlist-button" href="https://www.youtube.com/@Stephenmercy/releases" target="_blank" rel="noopener noreferrer">Browse all official releases ↗</a>
+        <a class="release-playlist-button" href="https://www.youtube.com/@Stephenmercy" target="_blank" rel="noopener noreferrer">Visit YouTube channel ↗</a>
       </div>
     </section>
 
