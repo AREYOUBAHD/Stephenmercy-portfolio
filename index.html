@@ -107,7 +107,22 @@
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
   
 .whatsapp-float{position:fixed;right:18px;bottom:20px;z-index:99999;background:#25D366;color:#fff;padding:13px 17px;border-radius:999px;font:700 14px Arial,sans-serif;box-shadow:0 5px 18px #0008}@media(max-width:480px){.whatsapp-float{right:12px;bottom:14px}}
-</style>
+
+    .youtube-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .youtube-card{min-width:0;background:var(--surface);border:1px solid var(--line);padding:10px;transition:transform .2s,border-color .2s}
+    .youtube-card:hover{transform:translateY(-3px);border-color:rgba(201,169,110,.7)}
+    .youtube-thumb{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#050505}
+    .youtube-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .25s}
+    .youtube-card:hover .youtube-thumb img{transform:scale(1.035)}
+    .youtube-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:58px;height:40px;border-radius:12px;background:#e62117;color:#fff;display:grid;place-items:center;font-size:19px;box-shadow:0 3px 14px #0008}
+    .youtube-card a{display:block}
+    .youtube-caption{padding:13px 3px 3px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .youtube-caption strong{font-size:12px;letter-spacing:.04em}
+    .youtube-caption span{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);white-space:nowrap}
+    @media(max-width:800px){.youtube-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+    @media(max-width:520px){.youtube-grid{grid-template-columns:1fr}}
+
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -490,6 +505,64 @@
           </video>
           <p class="video-label">Video 34</p>
           <h3>f9f07030-be03-4faa-870b-b95a9da4ddde.mp4</h3>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="wrap section" id="youtube-videos" aria-labelledby="youtube-videos-title">
+      <div class="section-head">
+        <div><div class="kicker">YouTube / Watch</div><h2 id="youtube-videos-title">Watch on<br>YouTube.</h2></div>
+        <p class="section-note">Official video links from Stephen Mercy. Select a thumbnail to watch on YouTube.</p>
+      </div>
+      <div class="youtube-grid" aria-label="Stephen Mercy YouTube videos">
+        <article class="youtube-card">
+          <a href="https://youtu.be/wCuHddq4IQ0" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/wCuHddq4IQ0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/AfvocA4lxgM" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/AfvocA4lxgM/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/JW3gX8lMGcg" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/JW3gX8lMGcg/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/mRPk3_QAnH4" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/mRPk3_QAnH4/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/obolpni3-Ec" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/obolpni3-Ec/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/Pn_ebd5Rar0" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/Pn_ebd5Rar0/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/9m5vd84gW5s" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/9m5vd84gW5s/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
+        </article>
+        <article class="youtube-card">
+          <a href="https://youtu.be/okaW4E3IXXo" target="_blank" rel="noopener noreferrer" aria-label="Watch video on YouTube">
+            <div class="youtube-thumb"><img src="https://img.youtube.com/vi/okaW4E3IXXo/hqdefault.jpg" alt="YouTube video thumbnail" loading="lazy"><span class="youtube-play" aria-hidden="true">▶</span></div>
+            <div class="youtube-caption"><strong>Stephen Mercy</strong><span>Watch ↗</span></div>
+          </a>
         </article>
       </div>
     </section>
