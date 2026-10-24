@@ -516,5 +516,27 @@
     });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const displayName = "Stephen Mercy Live activities";
+
+  document.querySelectorAll(".video-card").forEach(card => {
+    const heading = card.querySelector("h3");
+    if (heading) heading.textContent = displayName;
+
+    const video = card.querySelector("video");
+    if (video) video.setAttribute("aria-label", displayName);
+
+    const label = card.querySelector(".video-label");
+    if (label) label.textContent = displayName;
+  });
+
+  document.querySelectorAll("img").forEach(img => {
+    img.alt = displayName;
+    img.title = displayName;
+  });
+});
+</script>
 </body>
 </html>
