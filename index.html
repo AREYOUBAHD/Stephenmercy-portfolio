@@ -1,44 +1,245 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b0b0c">
-<meta name="description" content="Official portfolio of Stephen Mercy — artist, sound, and the AreYouBahd movement.">
-<title>Stephen Mercy — Official Artist Portfolio</title>
-<style>
-:root{--bg:#0b0b0c;--panel:#151517;--white:#f5f3ef;--muted:#a5a2a0;--acid:#d7ff3f;--line:rgba(255,255,255,.14);--max:1180px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}button,a{ -webkit-tap-highlight-color:transparent}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-size:17px;font-weight:900;letter-spacing:.08em}.brand span{color:var(--acid)}.navlinks{display:flex;gap:28px;color:#d0ceca;font-size:12px;text-transform:uppercase;letter-spacing:.13em}.navlinks a:hover,.textlink:hover{color:var(--acid)}.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:9px 12px}.hero{min-height:690px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:36px;padding:68px 0 76px}.eyebrow{color:var(--acid);text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:bold}.hero h1{font-size:clamp(56px,8.7vw,112px);line-height:.86;letter-spacing:-.075em;margin:22px 0 28px;text-transform:uppercase}.hero h1 span{color:var(--acid);display:block}.intro{font-size:17px;color:#c3c0bc;max-width:470px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;font-size:11px;font-weight:bold;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--acid);transition:.2s}.btn.primary{background:var(--acid);color:#111}.btn:hover{transform:translateY(-2px);background:white;color:#111;border-color:white}.hero-art{position:relative;min-height:500px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 48% 45%,#45451e 0%,#222313 25%,#121214 60%,#0b0b0c 80%);border:1px solid var(--line)}.hero-art:before{content:"";position:absolute;width:70%;aspect-ratio:1;border:1px solid rgba(215,255,63,.42);border-radius:50%;box-shadow:0 0 0 32px rgba(215,255,63,.025),0 0 0 70px rgba(215,255,63,.025)}.hero-art:after{content:"SM";font-size:clamp(110px,20vw,240px);font-weight:900;letter-spacing:-.12em;color:rgba(245,243,239,.09);position:absolute}.art-label{position:absolute;bottom:22px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:end;z-index:1;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#d6d5c6}.art-label strong{font-size:13px;color:var(--acid)}.ticker{overflow:hidden;border-block:1px solid var(--line);padding:15px 0;color:var(--acid);font-size:12px;letter-spacing:.2em;font-weight:bold;white-space:nowrap}.ticker div{word-spacing:18px;text-align:center}.section{padding:100px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:34px}.kicker{color:var(--acid);font-size:10px;letter-spacing:.2em;text-transform:uppercase}.section h2{font-size:clamp(34px,5vw,58px);line-height:.95;letter-spacing:-.055em;text-transform:uppercase;margin:12px 0 0}.section-note{max-width:340px;color:var(--muted);font-size:14px}.release-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.release{background:var(--panel);border:1px solid var(--line);padding:14px;transition:.25s}.release:hover{transform:translateY(-5px);border-color:rgba(215,255,63,.6)}.cover{aspect-ratio:1;background:linear-gradient(140deg,#33351b,#111);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.cover:before{content:"";position:absolute;width:80%;height:80%;border:1px solid rgba(215,255,63,.4);transform:rotate(35deg)}.cover:after{content:"";position:absolute;width:65%;height:65%;border:1px solid rgba(255,255,255,.17);transform:rotate(-25deg)}.cover b{position:relative;z-index:1;text-align:center;font-size:clamp(25px,3.8vw,44px);font-weight:900;letter-spacing:-.08em;line-height:.9;text-transform:uppercase}.cover small{position:absolute;bottom:12px;left:12px;font-size:8px;letter-spacing:.18em}.cover.money{background:linear-gradient(135deg,#3d4022,#111)}.cover.bumbum{background:linear-gradient(135deg,#103c3d,#101114)}.cover.odogwu{background:linear-gradient(135deg,#492c1c,#111)}.release-info{display:flex;justify-content:space-between;gap:12px;padding:16px 2px 4px;align-items:start}.release-info h3{margin:0;font-size:17px}.release-info p{margin:4px 0 0;color:var(--muted);font-size:12px}.tag{color:var(--acid);font-size:9px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.about-mark{background:var(--acid);color:#101010;padding:30px;min-height:320px;display:flex;flex-direction:column;justify-content:space-between}.about-mark strong{font-size:clamp(48px,7vw,82px);line-height:.8;letter-spacing:-.09em}.about-mark span{font-size:11px;letter-spacing:.2em;font-weight:bold}.about-copy p{color:#c6c3bf;font-size:17px;max-width:640px}.about-copy p:first-child{margin-top:0}.values{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}.value{padding:15px;border:1px solid var(--line);font-size:11px;text-transform:uppercase;letter-spacing:.1em}.value b{display:block;color:var(--acid);font-size:20px;margin-bottom:7px}.video-card{background:linear-gradient(115deg,#191a12,#101012);border:1px solid var(--line);padding:42px;display:flex;align-items:center;justify-content:space-between;gap:30px;min-height:230px}.video-card h3{font-size:clamp(28px,4vw,46px);line-height:.95;letter-spacing:-.05em;text-transform:uppercase;margin:12px 0}.play{width:64px;height:64px;flex-shrink:0;border:1px solid var(--acid);border-radius:50%;display:grid;place-items:center;color:var(--acid);font-size:22px}.contact{background:var(--acid);color:#111;padding:60px;display:flex;justify-content:space-between;align-items:end;gap:30px}.contact .kicker{color:#333}.contact h2{font-size:clamp(42px,7vw,82px);line-height:.86;letter-spacing:-.08em;margin:14px 0 0}.contact .btn{border-color:#111;color:#111}.contact .btn:hover{background:#111;color:white}.socials{display:flex;gap:18px;flex-wrap:wrap;margin-top:20px;font-size:11px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase}.socials a{text-decoration:underline;text-underline-offset:4px}.footer{padding:24px 0;display:flex;justify-content:space-between;gap:20px;color:#8c8985;font-size:10px;letter-spacing:.12em;text-transform:uppercase}.footer strong{color:var(--acid)}@media(max-width:760px){.wrap{width:min(100% - 32px,var(--max))}.nav{height:70px}.navlinks{display:none;position:absolute;top:70px;left:0;right:0;padding:22px 24px;background:#111;z-index:5;flex-direction:column;gap:18px;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu{display:block}.hero{grid-template-columns:1fr;padding:55px 0;gap:28px;min-height:auto}.hero h1{font-size:clamp(58px,17vw,100px)}.hero-art{min-height:330px}.section{padding:68px 0}.section-head{display:block}.section-note{margin-top:18px}.release-grid{grid-template-columns:1fr 1fr}.release:last-child{grid-column:span 2}.about{grid-template-columns:1fr;gap:28px}.about-mark{min-height:220px}.values{grid-template-columns:1fr 1fr}.video-card{padding:25px;min-height:190px}.contact{padding:34px 25px;display:block}.contact .btn{margin-top:25px}.footer{flex-direction:column}}@media(max-width:420px){.release-grid{grid-template-columns:1fr}.release:last-child{grid-column:auto}.values{grid-template-columns:1fr 1fr}.hero-art{min-height:270px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0a08">
+  <meta name="description" content="The official Stephen Mercy artist portfolio. Discover music, videos, releases, and booking information.">
+  <meta property="og:title" content="Stephen Mercy — Official Artist Portfolio">
+  <meta property="og:description" content="Music. Vision. Movement. Discover the world of Stephen Mercy.">
+  <meta property="og:type" content="website">
+  <title>Stephen Mercy — Official Artist Portfolio</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b0a08;--surface:#14120f;--surface-2:#1b1813;--gold:#c9a96e;--gold-light:#ead4a2;--white:#f5f0e7;--muted:#a7a096;--line:rgba(201,169,110,.23);--max:1200px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--gold-light);outline-offset:4px}
+    img{display:block;max-width:100%}
+    .wrap{width:min(var(--max),calc(100% - 52px));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px;top:12px;background:var(--gold);color:#111;padding:10px 14px;z-index:20}
+    .skip-link:focus{left:12px}
+    .site-header{position:sticky;top:0;z-index:10;background:rgba(11,10,8,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-size:16px;font-weight:900;letter-spacing:.16em;white-space:nowrap}
+    .brand span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:30px}
+    .nav-links a,.nav-cta{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#d8d0c2;transition:color .2s}
+    .nav-links a:hover,.nav-cta:hover{color:var(--gold-light)}
+    .nav-cta{border:1px solid var(--gold);padding:12px 15px}
+    .menu-toggle{display:none;background:transparent;border:1px solid var(--line);color:var(--white);padding:10px 12px;font:inherit;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+    .hero{min-height:690px;display:grid;grid-template-columns:1fr .88fr;align-items:center;gap:56px;padding-block:76px}
+    .eyebrow,.kicker{color:var(--gold);font-size:10px;letter-spacing:.25em;text-transform:uppercase;font-weight:700}
+    h1,h2,h3,p{margin-top:0}
+    .hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(60px,8.3vw,112px);line-height:.87;letter-spacing:-.065em;font-weight:400;text-transform:uppercase;margin:23px 0 28px}
+    .hero h1 span{display:block;color:var(--gold)}
+    .hero-copy{max-width:510px;color:#c9c2b6;font-size:16px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:15px 19px;border:1px solid var(--gold);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s,transform .2s}
+    .button:hover{transform:translateY(-2px);background:var(--gold-light);border-color:var(--gold-light);color:#17120b}
+    .button.filled{background:var(--gold);color:#17120b}
+    .button.filled:hover{background:var(--gold-light)}
+    .hero-art{min-height:500px;position:relative;overflow:hidden;border:1px solid var(--line);background:radial-gradient(ellipse at 50% 38%,#5c4728 0%,#292016 27%,#15110d 59%,#0b0a08 80%);display:flex;align-items:center;justify-content:center}
+    .hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(201,169,110,.46);border-radius:50%;aspect-ratio:1;width:75%}
+    .hero-art:after{width:58%;border-color:rgba(245,240,231,.17)}
+    .monogram{position:relative;z-index:1;font-family:Georgia,'Times New Roman',serif;font-size:clamp(125px,18vw,230px);letter-spacing:-.13em;line-height:1;color:rgba(245,240,231,.12);padding-right:.13em}
+    .art-caption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;display:flex;align-items:end;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#d7c7a7}
+    .art-caption strong{font-size:12px;color:var(--gold-light)}
+    .marquee{border-block:1px solid var(--line);padding:15px 0;color:var(--gold-light);font-size:10px;letter-spacing:.25em;text-align:center;text-transform:uppercase;word-spacing:12px}
+    .section{padding-block:100px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:36px}
+    .section h2,.about-copy h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:clamp(38px,5.3vw,64px);line-height:.98;letter-spacing:-.045em;text-transform:uppercase;margin:12px 0 0}
+    .section-note{max-width:365px;margin:0;color:var(--muted);font-size:13px}
+    .release-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .release{background:var(--surface);border:1px solid var(--line);padding:13px;transition:transform .25s,border-color .25s}
+    .release:hover{transform:translateY(-5px);border-color:rgba(201,169,110,.7)}
+    .cover{aspect-ratio:1;position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(145deg,#544125,#15100b 72%)}
+    .cover:before,.cover:after{content:"";position:absolute;width:74%;aspect-ratio:1;border:1px solid rgba(234,212,162,.5);transform:rotate(34deg)}
+    .cover:after{width:55%;transform:rotate(-22deg);border-color:rgba(245,240,231,.22)}
+    .cover.bumbum{background:linear-gradient(145deg,#343d39,#121310 72%)}
+    .cover.odogwu{background:linear-gradient(145deg,#68472b,#16100b 72%)}
+    .cover.love{background:linear-gradient(145deg,#542d2b,#16100d 72%)}
+    .cover-title{position:relative;z-index:1;text-align:center;font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,3.4vw,44px);line-height:.91;letter-spacing:-.05em;text-transform:uppercase}
+    .cover-credit{position:absolute;bottom:12px;left:12px;right:12px;z-index:1;font-size:8px;letter-spacing:.16em;text-transform:uppercase;text-align:center;color:#e5d5b6}
+    .release-info{padding:16px 3px 4px;display:flex;justify-content:space-between;align-items:start;gap:12px}
+    .release-info h3{font-size:16px;margin:0 0 4px;font-weight:600}
+    .release-info p{font-size:11px;color:var(--muted);margin:0}
+    .listen-link{color:var(--gold-light);font-size:9px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;padding-top:4px}
+    .listen-link:hover{text-decoration:underline;text-underline-offset:4px}
+    .about{border-block:1px solid var(--line);display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center}
+    .about-mark{min-height:350px;padding:28px;background:linear-gradient(145deg,#d6bb83,#a27c42);color:#17120b;display:flex;flex-direction:column;justify-content:space-between}
+    .about-mark span{font-size:9px;letter-spacing:.2em;font-weight:700}
+    .about-mark strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(52px,6.5vw,82px);line-height:.82;letter-spacing:-.07em;font-weight:400}
+    .about-copy p{max-width:650px;color:#c7c0b4;font-size:15px}
+    .about-copy .kicker{margin-bottom:10px}
+    .values{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
+    .value{padding:14px;border:1px solid var(--line);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:#d6cfc3}
+    .value b{display:block;font-family:Georgia,'Times New Roman',serif;font-size:25px;font-weight:400;color:var(--gold);margin-bottom:3px}
+    .video-panel{min-height:250px;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:42px;border:1px solid var(--line);background:radial-gradient(ellipse at 78% 40%,#3a2b17 0%,#19130c 35%,#11100d 72%)}
+    .video-panel h3{font-family:Georgia,'Times New Roman',serif;font-size:clamp(32px,4.5vw,52px);font-weight:400;line-height:.95;text-transform:uppercase;margin:13px 0 16px}
+    .video-panel p{font-size:12px;color:var(--muted);margin-bottom:20px}
+    .play-button{width:66px;height:66px;flex:0 0 auto;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold-light);font-size:19px;transition:background .2s,color .2s}
+    .play-button:hover{background:var(--gold);color:#15100a}
+    .booking{background:var(--gold);color:#161109;padding:64px max(26px,calc((100% - var(--max))/2));display:flex;align-items:end;justify-content:space-between;gap:30px}
+    .booking .kicker{color:#3d2b14}
+    .booking h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(46px,7vw,84px);font-weight:400;line-height:.86;letter-spacing:-.07em;text-transform:uppercase;margin:14px 0 18px}
+    .booking p{max-width:440px;font-size:13px;color:#3b2d1b;margin-bottom:0}
+    .booking .button{border-color:#171109;color:#171109;white-space:nowrap}
+    .booking .button:hover{background:#171109;color:#f5f0e7;border-color:#171109}
+    .socials{display:flex;flex-wrap:wrap;gap:18px;margin-top:20px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .socials a{text-decoration:underline;text-underline-offset:4px}
+    .footer{padding-block:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:#8f887d;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+    .footer strong{color:var(--gold)}
+    .back-top{color:var(--gold-light)}
+    @media(max-width:800px){.wrap{width:min(var(--max),calc(100% - 36px))}.nav{height:72px}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;padding:24px 20px;background:#100e0b;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:22px}.nav-links.open{display:flex}.menu-toggle{display:block}.nav-cta{display:none}.hero{grid-template-columns:1fr;gap:30px;padding-block:55px}.hero h1{font-size:clamp(62px,14vw,100px)}.hero-art{min-height:390px}.section{padding-block:72px}.section-head{display:block}.section-note{margin-top:18px}.about{grid-template-columns:1fr;gap:30px;padding-block:72px}.about-mark{min-height:260px}.video-panel{padding:28px;min-height:210px}.booking{padding:44px 24px;display:block}.booking .button{margin-top:26px}.footer{align-items:flex-start;flex-direction:column}}
+    @media(max-width:520px){.release-grid{grid-template-columns:1fr 1fr;gap:10px}.release{padding:9px}.release-info{display:block}.release-info h3{font-size:14px}.listen-link{display:inline-block;margin-top:9px}.cover-title{font-size:clamp(25px,7vw,38px)}.hero-art{min-height:300px}.art-caption{left:14px;right:14px;bottom:14px}.art-caption span:last-child{max-width:110px;text-align:right}.values{grid-template-columns:repeat(2,1fr)}.video-panel{padding:23px}.play-button{width:52px;height:52px}.marquee{font-size:9px;word-spacing:5px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+  </style>
 </head>
 <body>
-<header class="wrap nav">
-<a class="brand" href="#home" aria-label="Stephen Mercy home">STEPHEN <span>MERCY.</span></a>
-<nav class="navlinks" id="navlinks" aria-label="Main navigation"><a href="#music">Music</a><a href="#about">About</a><a href="#visuals">Visuals</a><a href="#contact">Bookings</a></nav>
-<button class="menu" id="menu" aria-label="Toggle navigation" aria-expanded="false">MENU</button>
-</header>
-<main>
-<section class="wrap hero" id="home">
-<div><div class="eyebrow">Artist • Songwriter • AreYouBahd</div><h1>Make noise.<span>Make moves.</span></h1><p class="intro">The sound is mine. The journey is ours. Welcome to the world of Stephen Mercy — built on ambition, originality, hustle, and discipline.</p><div class="actions"><a class="btn primary" href="#music">Explore the music ↗</a><a class="btn" href="#contact">Bookings & features</a></div></div>
-<div class="hero-art" role="img" aria-label="Stephen Mercy artist artwork placeholder — replace with an official portrait"><div class="art-label"><div><strong>AREYOUBAHD?</strong><br>Bahd4Life · Straight up hundred</div><span>Official artist portfolio / 001</span></div></div>
-</section>
-<div class="ticker"><div>AREYOUBAHD? ✳ AMBITION ✳ RESILIENCE ✳ EXCELLENCE ✳ ORIGINALITY ✳ BAH D4LIFE ✳</div></div>
-<section class="wrap section" id="music"><div class="section-head"><div><div class="kicker">The catalogue / 01</div><h2>Press play.<br>Feel the energy.</h2></div><p class="section-note">From street-ready anthems to bold Afro-inspired sounds, every release is another chapter. Select a project to find it on your favourite platform.</p></div>
-<div class="release-grid">
-<article class="release"><a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Get+Money" target="_blank" rel="noopener"><div class="cover money"><b>GET<br>MONEY</b><small>STEPHEN MERCY</small></div><div class="release-info"><div><h3>Get Money</h3><p>Produced by GrandMastaTek</p></div><span class="tag">Listen ↗</span></div></a></article>
-<article class="release"><a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Bumbum+Clap+JayWillz" target="_blank" rel="noopener"><div class="cover bumbum"><b>BUMBUM<br>CLAP</b><small>STEPHEN MERCY FT JAYWILLZ</small></div><div class="release-info"><div><h3>BumBum Clap</h3><p>Stephen Mercy ft. JayWillz</p></div><span class="tag">Listen ↗</span></div></a></article>
-<article class="release"><a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Odogwu+DeChair" target="_blank" rel="noopener"><div class="cover odogwu"><b>ODOGWU<br>DECHAIR</b><small>STEPHEN MERCY FT TBREEZEE</small></div><div class="release-info"><div><h3>Odogwu (DeChair)</h3><p>Stephen Mercy ft. TBreezee</p></div><span class="tag">Listen ↗</span></div></a></article>
-</div></section>
-<section class="section about" id="about"><div class="wrap" style="width:100%"><div class="about-mark"><span>THE CODE / AREYOUBAHD?</span><strong>BE<br>BAHD.<br>FOR LIFE.</strong><span>STRAIGHT UP HUNDRED.</span></div></div><div class="about-copy"><div class="kicker">Who is Stephen Mercy? / 02</div><h2>More than a name.<br>A movement.</h2><p>Stephen Mercy is an artist building his own lane through music, confidence, and consistency. His sound and story live at the intersection of ambition and authenticity — with every release made to move people and leave a mark.</p><p>At the heart of it is <strong>AreYouBahd?</strong> “Bahd” is a challenge: are you truly good at what you do? It’s about proving your skill, staying original, and getting better without losing yourself.</p><div class="values"><div class="value"><b>A</b>Ambition</div><div class="value"><b>R</b>Resilience</div><div class="value"><b>E</b>Excellence</div><div class="value"><b>O</b>Originality</div><div class="value"><b>H</b>Hustle</div><div class="value"><b>D</b>Discipline</div></div></div></section>
-<section class="wrap section" id="visuals"><div class="section-head"><div><div class="kicker">Watch / 03</div><h2>See the vision.</h2></div><p class="section-note">Music videos, live moments, behind-the-scenes, and the stories around the sound.</p></div><a class="video-card" href="https://www.youtube.com/results?search_query=Stephen+Mercy+official+music+video" target="_blank" rel="noopener"><div><div class="kicker">Stephen Mercy on YouTube</div><h3>Official videos.<br>Real energy.</h3><span class="textlink">Explore video releases ↗</span></div><div class="play" aria-hidden="true">▶</div></a></section>
-<section class="contact" id="contact"><div><div class="kicker">Let’s build something / 04</div><h2>Let’s grow<br>together.</h2><div class="socials"><a href="https://www.instagram.com/Stephenmercy/" target="_blank" rel="noopener">@Stephenmercy</a><a href="https://www.instagram.com/Are_You_Bahd/" target="_blank" rel="noopener">@Are_You_Bahd</a><a href="https://www.youtube.com/results?search_query=Stephen+Mercy" target="_blank" rel="noopener">YouTube</a></div></div><a class="btn" href="https://www.instagram.com/Stephenmercy/" target="_blank" rel="noopener">Bookings & collaborations ↗</a></section>
-</main>
-<footer class="wrap footer"><span>© <span id="year"></span> Stephen Mercy. All rights reserved.</span><span>Built on <strong>AreYouBahd?</strong> · Bahd4Life</span><a href="#home">Back to top ↑</a></footer>
-<script>
-const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Stephen Mercy home">STEPHEN <span>MERCY</span></a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#music">Music</a><a href="#about">The artist</a><a href="#videos">Videos</a><a href="#bookings">Bookings</a>
+      </nav>
+      <a class="nav-cta" href="#bookings">Booking enquiries ↗</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false">Menu</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="wrap hero" id="home" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Recording artist · Songwriter</div>
+        <h1 id="hero-title">Sound with<br><span>purpose.</span></h1>
+        <p class="hero-copy">Welcome to the world of Stephen Mercy. Discover the music, follow the journey, and feel the energy behind every release.</p>
+        <div class="hero-actions">
+          <a class="button filled" href="#music">Explore the music <span aria-hidden="true">↗</span></a>
+          <a class="button" href="#bookings">Bookings & features</a>
+        </div>
+      </div>
+      <div class="hero-art" role="img" aria-label="Stephen Mercy monogram artwork. Replace with an approved artist portrait before launch.">
+        <div class="monogram" aria-hidden="true">SM</div>
+        <div class="art-caption"><div><strong>STEPHEN MERCY</strong><br>AreYouBahd? · Bahd4Life</div><span>Official artist portfolio</span></div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Artist motto">Music ✦ Vision ✦ Ambition ✦ Originality ✦ Bahd4Life ✦ Straight up hundred</div>
+
+    <section class="wrap section" id="music" aria-labelledby="music-title">
+      <div class="section-head">
+        <div><div class="kicker">Selected releases / 01</div><h2 id="music-title">The music.<br>Front and centre.</h2></div>
+        <p class="section-note">Explore selected releases from Stephen Mercy. Track links currently open YouTube search results until official individual release links are added.</p>
+      </div>
+      <div class="release-grid">
+        <article class="release">
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Get+Money" target="_blank" rel="noopener noreferrer" aria-label="Find Get Money by Stephen Mercy on YouTube">
+            <div class="cover"><div class="cover-title">Get<br>Money</div><div class="cover-credit">Stephen Mercy · Produced by GrandMastaTek</div></div>
+            <div class="release-info"><div><h3>Get Money</h3><p>Produced by GrandMastaTek</p></div><span class="listen-link">Listen ↗</span></div>
+          </a>
+        </article>
+        <article class="release">
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+BumBum+Clap+JayWillz" target="_blank" rel="noopener noreferrer" aria-label="Find BumBum Clap by Stephen Mercy featuring JayWillz on YouTube">
+            <div class="cover bumbum"><div class="cover-title">BumBum<br>Clap</div><div class="cover-credit">Stephen Mercy ft. JayWillz</div></div>
+            <div class="release-info"><div><h3>BumBum Clap</h3><p>Featuring JayWillz</p></div><span class="listen-link">Listen ↗</span></div>
+          </a>
+        </article>
+        <article class="release">
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Odogwu+DeChair+TBreezee" target="_blank" rel="noopener noreferrer" aria-label="Find Odogwu DeChair by Stephen Mercy featuring TBreezee on YouTube">
+            <div class="cover odogwu"><div class="cover-title">Odogwu<br>DeChair</div><div class="cover-credit">Stephen Mercy ft. TBreezee</div></div>
+            <div class="release-info"><div><h3>Odogwu (DeChair)</h3><p>Featuring TBreezee</p></div><span class="listen-link">Listen ↗</span></div>
+          </a>
+        </article>
+        <article class="release">
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Love+and+Money" target="_blank" rel="noopener noreferrer" aria-label="Find Love and Money by Stephen Mercy on YouTube">
+            <div class="cover love"><div class="cover-title">Love<br>& Money</div><div class="cover-credit">Stephen Mercy</div></div>
+            <div class="release-info"><div><h3>Love & Money</h3><p>Stephen Mercy</p></div><span class="listen-link">Listen ↗</span></div>
+          </a>
+        </article>
+        <article class="release">
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+More+Money+More+Nyash+OrshFargo" target="_blank" rel="noopener noreferrer" aria-label="Find More Money More Nyash by Stephen Mercy featuring OrshFargo on YouTube">
+            <div class="cover"><div class="cover-title">More Money<br>More Nyash</div><div class="cover-credit">Stephen Mercy ft. OrshFargo</div></div>
+            <div class="release-info"><div><h3>More Money More Nyash</h3><p>Featuring OrshFargo</p></div><span class="listen-link">Listen ↗</span></div>
+          </a>
+        </article>
+        <article class="release">
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Controversial+Open+Verse" target="_blank" rel="noopener noreferrer" aria-label="Find Controversial Open Verse by Stephen Mercy on YouTube">
+            <div class="cover"><div class="cover-title">Controversial<br><span style="font-size:.58em">Open Verse</span></div><div class="cover-credit">Stephen Mercy</div></div>
+            <div class="release-info"><div><h3>Controversial (Open Verse)</h3><p>Produced by iLogosMusic</p></div><span class="listen-link">Listen ↗</span></div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="wrap" style="width:100%">
+        <div class="about-mark"><span>THE CODE / AREYOUBAHD?</span><strong>Bahd<br>for life.</strong><span>STRAIGHT UP HUNDRED.</span></div>
+      </div>
+      <div class="about-copy">
+        <div class="kicker">The artist / 02</div>
+        <h2 id="about-title">A sound of<br>his own.</h2>
+        <p>Stephen Mercy is an artist carving his own lane through music, individuality, and consistency. Every release is part of a bigger journey: developing a distinct sound, connecting with listeners, and creating work that lasts.</p>
+        <p>His creative identity is connected to <strong>AreYouBahd?</strong> — “Bahd” is a challenge to prove your skill and excellence. It stands for ambition, resilience, originality, authenticity, hustle, and discipline.</p>
+        <div class="values" aria-label="AreYouBahd values">
+          <div class="value"><b>A</b>Ambition</div><div class="value"><b>R</b>Resilience</div><div class="value"><b>E</b>Excellence</div>
+          <div class="value"><b>O</b>Originality</div><div class="value"><b>H</b>Hustle</div><div class="value"><b>D</b>Discipline</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="videos" aria-labelledby="videos-title">
+      <div class="section-head">
+        <div><div class="kicker">Watch / 03</div><h2 id="videos-title">Beyond the audio.</h2></div>
+        <p class="section-note">Official music videos, visual stories, performances, and behind-the-scenes moments.</p>
+      </div>
+      <div class="video-panel">
+        <div>
+          <div class="kicker">Stephen Mercy on YouTube</div>
+          <h3>Watch the<br>world unfold.</h3>
+          <p>Discover available videos and visual releases.</p>
+          <a class="button" href="https://www.youtube.com/results?search_query=Stephen+Mercy+official+music+video" target="_blank" rel="noopener noreferrer">Explore videos ↗</a>
+        </div>
+        <a class="play-button" href="https://www.youtube.com/results?search_query=Stephen+Mercy+official+music+video" target="_blank" rel="noopener noreferrer" aria-label="Search Stephen Mercy official music videos on YouTube">▶</a>
+      </div>
+    </section>
+
+    <section class="booking" id="bookings" aria-labelledby="booking-title">
+      <div>
+        <div class="kicker">Bookings · Features · Collaborations</div>
+        <h2 id="booking-title">Let’s make<br>something matter.</h2>
+        <p>For performance enquiries, music features, creative partnerships, and professional collaborations, reach out through Stephen Mercy’s official social profile.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/Stephenmercy/" target="_blank" rel="noopener noreferrer">@Stephenmercy ↗</a>
+          <a href="https://www.instagram.com/Are_You_Bahd/" target="_blank" rel="noopener noreferrer">@Are_You_Bahd ↗</a>
+          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+        </div>
+      </div>
+      <a class="button" href="https://www.instagram.com/Stephenmercy/" target="_blank" rel="noopener noreferrer">Enquire about bookings ↗</a>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <span>© <span id="year"></span> Stephen Mercy. All rights reserved.</span>
+    <span>AreYouBahd? · <strong>Bahd4Life</strong></span>
+    <a class="back-top" href="#home">Back to top ↑</a>
+  </footer>
+  <script>
+    const menuButton = document.getElementById('menu-toggle');
+    const navigation = document.getElementById('nav-links');
+    menuButton.addEventListener('click', () => {
+      const isOpen = navigation.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? 'Close' : 'Menu';
+    });
+    navigation.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+      });
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
