@@ -157,7 +157,7 @@
 
   
     .video-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#080706;cursor:pointer}
-    .video-card video:not([poster]){background-image:linear-gradient(135deg,rgba(201,169,110,.18),rgba(8,7,6,.9)),url("Areyoubahd%20(1).jpeg");background-size:cover;background-position:center}
+    .video-card video{background:#080706;object-fit:contain}
 
   </style>
 </head>
@@ -736,6 +736,28 @@ document.addEventListener("DOMContentLoaded", () => {
         videos.forEach(makePoster);
       }
     })();
+  </script>
+
+
+  <script>
+    // Show a real frame from each uploaded video as its thumbnail, without replacing the video player.
+    document.querySelectorAll(".video-card video").forEach((video) => {
+      video.preload = "metadata";
+      const showFrame = () => {
+        if (video.dataset.thumbnailReady) return;
+        video.dataset.thumbnailReady = "true";
+        try {
+          if (Number.isFinite(video.duration) && video.duration > 0) {
+            video.currentTime = Math.min(0.1, video.duration / 10);
+          }
+        } catch (_) {}
+      };
+      video.addEventListener("loadedmetadata", showFrame, { once: true });
+      video.addEventListener("seeked", () => {
+        video.pause();
+      }, { once: true });
+      if (video.readyState >= 1) showFrame();
+    });
   </script>
 
 </body>
