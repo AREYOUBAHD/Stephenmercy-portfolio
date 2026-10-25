@@ -155,6 +155,10 @@
     @media(prefers-reduced-motion:reduce){.hero-photo-float img{animation:none;opacity:0}.hero-photo-float img:first-child{opacity:1;transform:none}}
     @media(max-width:700px){.hero-photo-float img{padding:12px 10px 72px}}
 
+  
+    .video-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#080706;cursor:pointer}
+    .video-card video:not([poster]){background-image:linear-gradient(135deg,rgba(201,169,110,.18),rgba(8,7,6,.9)),url("Areyoubahd%20(1).jpeg");background-size:cover;background-position:center}
+
   </style>
 </head>
 <body>
@@ -685,5 +689,54 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <a class="whatsapp-float" href="https://wa.me/254740963823?text=Hello%20Stephen%20Mercy%2C%20I%27m%20interested%20in%20booking%20you." target="_blank" rel="noopener noreferrer" aria-label="Book Stephen Mercy on WhatsApp">☏ Book on WhatsApp</a>
+
+  <script id="video-thumbnail-generator">
+    (() => {
+      const videos = document.querySelectorAll('#videos .video-card video');
+      const makePoster = (video) => {
+        if (video.dataset.posterReady || video.dataset.posterLoading) return;
+        video.dataset.posterLoading = '1';
+        const source = video.querySelector('source');
+        if (!source) return;
+        const preview = document.createElement('video');
+        preview.muted = true;
+        preview.playsInline = true;
+        preview.preload = 'auto';
+        preview.src = source.src;
+        const clean = () => {
+          preview.removeAttribute('src');
+          preview.load();
+          delete video.dataset.posterLoading;
+        };
+        preview.addEventListener('loadeddata', () => {
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = preview.videoWidth || 640;
+            canvas.height = preview.videoHeight || 360;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(preview, 0, 0, canvas.width, canvas.height);
+            video.poster = canvas.toDataURL('image/jpeg', 0.78);
+            video.dataset.posterReady = '1';
+          } catch (e) {}
+          clean();
+        }, { once: true });
+        preview.addEventListener('error', clean, { once: true });
+      };
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              makePoster(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '240px' });
+        videos.forEach(video => observer.observe(video));
+      } else {
+        videos.forEach(makePoster);
+      }
+    })();
+  </script>
+
 </body>
 </html>
