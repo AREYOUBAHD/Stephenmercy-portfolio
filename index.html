@@ -137,6 +137,13 @@
     .discography-thumb-overlay span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
     @media(max-width:520px){.discography-thumb{aspect-ratio:4/3}.discography-thumb-overlay{flex-direction:column;align-items:flex-start;justify-content:flex-end}}
 
+  
+    html{background:var(--bg)}
+    body{background:transparent}
+    body:before{content:"";position:fixed;inset:-3%;z-index:-1;pointer-events:none;background:linear-gradient(rgba(11,10,8,.78),rgba(11,10,8,.84)),url("arebahd%20(1).jpeg") center center/cover no-repeat;opacity:.95;transform:scale(1.02);animation:arebahdBackgroundFloat 28s ease-in-out infinite alternate;will-change:transform,background-position}
+    @keyframes arebahdBackgroundFloat{0%{transform:scale(1.02) translate3d(-.4%,0,0);background-position:48% 48%,48% 48%}100%{transform:scale(1.08) translate3d(.4%,-.5%,0);background-position:52% 52%,52% 52%}}
+    @media(prefers-reduced-motion:reduce){body:before{animation:none}}
+
   </style>
 </head>
 <body>
