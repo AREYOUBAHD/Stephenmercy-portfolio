@@ -165,11 +165,12 @@
     @media(max-width:520px){.brand-portfolio{font-size:.58em;letter-spacing:.06em}}
   
     .hero-video-float{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
-    .hero-video-float video{position:absolute;inset:0;width:100%;height:100%;padding:8px 8px 66px;object-fit:contain;opacity:0;transform:translateX(-100%);filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));transition:transform .65s ease,opacity .65s ease}
+    .hero-video-float video{position:absolute;inset:0;width:100%;height:100%;padding:8px 8px 66px;object-fit:contain;opacity:0;transform:translateX(-100%);filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));transition:transform .65s ease,opacity .65s ease;will-change:transform,opacity}
     .hero-video-float video.is-active{opacity:1;transform:translateX(0)}
     .hero-video-float video.is-leaving{opacity:0;transform:translateX(100%)}
-    @media(prefers-reduced-motion:reduce){.hero-video-float{display:none}}
+    @media(min-width:701px) and (max-width:1024px){.hero-video-float video{padding:8px 7px 70px}}
     @media(max-width:700px){.hero-video-float video{padding:8px 6px 72px}}
+    @media(max-width:420px){.hero-video-float video{padding:6px 4px 76px}}
 
   </style>
 </head>
@@ -789,7 +790,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   <script>
-    // Cycle every Visual Archive video through the hero: 7 seconds per clip, then swipe right.
+    // Cycle every Visual Archive video through the hero: 10 seconds per clip, then swipe right.
     (() => {
       const layer = document.querySelector(".hero-video-float");
       const sources = Array.from(document.querySelectorAll("#videos .video-card video source"))
@@ -811,6 +812,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       let current = 0;
       let rotationTimer;
+      let swipeTimer;
       const playCurrent = () => {
         video.src = sources[current];
         video.load();
@@ -821,7 +823,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const rotate = () => {
         video.classList.remove("is-active");
         video.classList.add("is-leaving");
-        window.setTimeout(() => {
+        swipeTimer = window.setTimeout(() => {
           current = (current + 1) % sources.length;
           video.pause();
           video.classList.remove("is-leaving");
@@ -832,8 +834,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 650);
       };
       playCurrent();
-      rotationTimer = window.setInterval(rotate, 7000);
-      window.addEventListener("pagehide", () => window.clearInterval(rotationTimer), { once: true });
+      rotationTimer = window.setInterval(rotate, 10000);
+      window.addEventListener("pagehide", () => {
+        window.clearInterval(rotationTimer);
+        window.clearTimeout(swipeTimer);
+      }, { once: true });
     })();
   </script>
 
