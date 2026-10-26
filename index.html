@@ -754,37 +754,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   <script>
-    // Mobile-friendly video playback; capture a preview frame without interrupting a visitor who starts playback.
-    document.querySelectorAll(".video-card video").forEach((video) => {
+    // Keep native playback controls in charge on phones, tablets, iPads, and desktop.
+    // Do not seek or pause the real gallery video to generate a thumbnail; that can
+    // interrupt the first user-initiated play on mobile Safari.
+    document.querySelectorAll("#videos .video-card video").forEach((video) => {
+      video.setAttribute("controls", "");
       video.setAttribute("playsinline", "");
       video.setAttribute("webkit-playsinline", "true");
-      video.preload = "metadata";
-      const showFrame = () => {
-        if (video.dataset.thumbnailReady || video.dataset.userStarted === "true") return;
-        video.dataset.thumbnailReady = "true";
-        try {
-          if (Number.isFinite(video.duration) && video.duration > 0) {
-            video.dataset.thumbnailSeeking = "true";
-            video.currentTime = Math.min(0.1, video.duration / 10);
-          }
-        } catch (_) {
-          video.dataset.thumbnailSeeking = "false";
-        }
-      };
-      video.addEventListener("loadedmetadata", showFrame, { once: true });
+      video.setAttribute("preload", "metadata");
+      video.setAttribute("disablepictureinpicture", "false");
+      const source = video.querySelector("source");
+      if (source && !source.getAttribute("type")) source.setAttribute("type", "video/mp4");
+
+      let playbackRequested = false;
       video.addEventListener("play", () => {
+        playbackRequested = true;
         video.dataset.userStarted = "true";
-        video.dataset.thumbnailSeeking = "false";
       });
-      video.addEventListener("seeked", () => {
-        if (video.dataset.userStarted !== "true") video.pause();
-        video.dataset.thumbnailSeeking = "false";
-      }, { once: true });
       video.addEventListener("error", () => {
-        const source = video.querySelector("source");
-        if (source) source.dataset.playbackError = "true";
+        video.dataset.playbackError = "true";
       });
-      if (video.readyState >= 1) showFrame();
+
+      // On the first deliberate tap/click, ensure the browser has started loading
+      // the source while leaving playback itself to the user's native controls.
+      const primePlayback = () => {
+        if (playbackRequested || video.readyState > 0) return;
+        video.load();
+      };
+      video.addEventListener("pointerdown", primePlayback, { passive: true, once: true });
+      video.addEventListener("touchstart", primePlayback, { passive: true, once: true });
     });
   </script>
 
