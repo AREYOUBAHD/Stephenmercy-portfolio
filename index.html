@@ -55,6 +55,7 @@
     .release{background:var(--surface);border:1px solid var(--line);padding:13px;transition:transform .25s,border-color .25s}
     .release:hover{transform:translateY(-5px);border-color:rgba(201,169,110,.7)}
     .cover{aspect-ratio:1;position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(145deg,#544125,#15100b 72%)}
+    .cover img.release-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
     .cover:before,.cover:after{content:"";position:absolute;width:74%;aspect-ratio:1;border:1px solid rgba(234,212,162,.5);transform:rotate(34deg)}
     .cover:after{width:55%;transform:rotate(-22deg);border-color:rgba(245,240,231,.22)}
     .cover.bumbum{background:linear-gradient(145deg,#343d39,#121310 72%)}
@@ -221,8 +222,8 @@
       </div>
       <div class="release-grid">
         <article class="release">
-          <a href="https://www.youtube.com/results?search_query=Stephen+Mercy+Get+Money" target="_blank" rel="noopener noreferrer" aria-label="Find Get Money by Stephen Mercy on YouTube">
-            <div class="cover"><div class="cover-title">Get<br>Money</div><div class="cover-credit">Stephen Mercy · Produced by GrandMastaTek</div></div>
+          <a href="https://youtu.be/pXpWOq1wqs0" target="_blank" rel="noopener noreferrer" aria-label="Watch Get Money by Stephen Mercy on YouTube">
+            <div class="cover"><img class="release-cover" src="https://img.youtube.com/vi/pXpWOq1wqs0/maxresdefault.jpg" alt="Get Money by Stephen Mercy — original YouTube cover thumbnail" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/pXpWOq1wqs0/hqdefault.jpg'"></div>
             <div class="release-info"><div><h3>Get Money</h3><p>Produced by GrandMastaTek</p></div><span class="listen-link">Listen ↗</span></div>
           </a>
         </article>
