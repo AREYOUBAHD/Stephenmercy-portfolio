@@ -162,6 +162,17 @@
   
     .brand-portfolio{font-style:italic;font-weight:500;letter-spacing:.12em;color:var(--gold-light);font-size:.68em}
     @media(max-width:520px){.brand-portfolio{font-size:.58em;letter-spacing:.06em}}
+  
+    .hero-video-float{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+    .hero-video-float video{position:absolute;inset:0;width:100%;height:100%;padding:8px 8px 66px;object-fit:contain;opacity:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));animation:heroVideoFloat 5s linear infinite}
+    .hero-video-float video:nth-child(2){animation-delay:1s}
+    .hero-video-float video:nth-child(3){animation-delay:2s}
+    .hero-video-float video:nth-child(4){animation-delay:3s}
+    .hero-video-float video:nth-child(5){animation-delay:4s}
+    @keyframes heroVideoFloat{0%{opacity:0;transform:translateX(-100%)}2%{opacity:1}18%{opacity:1;transform:translateX(0)}20%{opacity:0;transform:translateX(100%)}20.01%,100%{opacity:0;transform:translateX(-100%)}}
+    @media(prefers-reduced-motion:reduce){.hero-video-float{display:none}}
+    @media(max-width:700px){.hero-video-float video{padding:8px 6px 72px}}
+
   </style>
 </head>
 <body>
@@ -196,6 +207,7 @@
           <img src="Areyoubahd%20(4).jpeg" alt="AreYouBahd group photo, all faces visible" loading="lazy">
           <img src="Areyoubahd%20(5).jpeg" alt="AreYouBahd group photo, all faces visible" loading="lazy">
         </div>
+        <div class="hero-video-float" aria-label="Floating previews from The visual archive"></div>
         <div class="art-caption"><div><strong>STEPHEN MERCY</strong><br>AreYouBahd? · Bahd4Life</div><span>Official artist portfolio</span></div>
       </div>
     </section>
@@ -775,6 +787,32 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       if (video.readyState >= 1) showFrame();
     });
+  </script>
+
+
+  <script>
+    // Reuse the existing archive video sources for muted, decorative hero previews.
+    (() => {
+      const layer = document.querySelector(".hero-video-float");
+      const sources = Array.from(document.querySelectorAll(".video-card video source"))
+        .map(source => source.getAttribute("src")).filter(Boolean).slice(0, 5);
+      if (!layer || !sources.length) return;
+      sources.forEach((src, index) => {
+        const video = document.createElement("video");
+        video.src = src;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.loop = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        video.setAttribute("playsinline", "");
+        video.setAttribute("webkit-playsinline", "true");
+        video.preload = "metadata";
+        video.setAttribute("aria-hidden", "true");
+        video.addEventListener("canplay", () => { video.play().catch(() => {}); }, { once: true });
+        layer.appendChild(video);
+      });
+    })();
   </script>
 
 </body>
