@@ -165,12 +165,9 @@
     @media(max-width:520px){.brand-portfolio{font-size:.58em;letter-spacing:.06em}}
   
     .hero-video-float{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
-    .hero-video-float video{position:absolute;inset:0;width:100%;height:100%;padding:8px 8px 66px;object-fit:contain;opacity:0;filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));animation:heroVideoFloat 5s linear infinite}
-    .hero-video-float video:nth-child(2){animation-delay:1s}
-    .hero-video-float video:nth-child(3){animation-delay:2s}
-    .hero-video-float video:nth-child(4){animation-delay:3s}
-    .hero-video-float video:nth-child(5){animation-delay:4s}
-    @keyframes heroVideoFloat{0%{opacity:0;transform:translateX(-100%)}2%{opacity:1}18%{opacity:1;transform:translateX(0)}20%{opacity:0;transform:translateX(100%)}20.01%,100%{opacity:0;transform:translateX(-100%)}}
+    .hero-video-float video{position:absolute;inset:0;width:100%;height:100%;padding:8px 8px 66px;object-fit:contain;opacity:0;transform:translateX(-100%);filter:drop-shadow(0 8px 24px rgba(0,0,0,.4));transition:transform .65s ease,opacity .65s ease}
+    .hero-video-float video.is-active{opacity:1;transform:translateX(0)}
+    .hero-video-float video.is-leaving{opacity:0;transform:translateX(100%)}
     @media(prefers-reduced-motion:reduce){.hero-video-float{display:none}}
     @media(max-width:700px){.hero-video-float video{padding:8px 6px 72px}}
 
@@ -792,27 +789,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   <script>
-    // Reuse the existing archive video sources for muted, decorative hero previews.
+    // Cycle every Visual Archive video through the hero: 7 seconds per clip, then swipe right.
     (() => {
       const layer = document.querySelector(".hero-video-float");
-      const sources = Array.from(document.querySelectorAll(".video-card video source"))
-        .map(source => source.getAttribute("src")).filter(Boolean).slice(0, 5);
+      const sources = Array.from(document.querySelectorAll("#videos .video-card video source"))
+        .map(source => source.getAttribute("src")).filter(Boolean);
       if (!layer || !sources.length) return;
-      sources.forEach((src, index) => {
-        const video = document.createElement("video");
-        video.src = src;
-        video.muted = true;
-        video.defaultMuted = true;
-        video.loop = true;
-        video.autoplay = true;
-        video.playsInline = true;
-        video.setAttribute("playsinline", "");
-        video.setAttribute("webkit-playsinline", "true");
-        video.preload = "metadata";
-        video.setAttribute("aria-hidden", "true");
-        video.addEventListener("canplay", () => { video.play().catch(() => {}); }, { once: true });
-        layer.appendChild(video);
-      });
+
+      const video = document.createElement("video");
+      video.className = "is-active";
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "true");
+      video.preload = "auto";
+      video.setAttribute("aria-hidden", "true");
+      layer.appendChild(video);
+
+      let current = 0;
+      let rotationTimer;
+      const playCurrent = () => {
+        video.src = sources[current];
+        video.load();
+        const startPlayback = () => video.play().catch(() => {});
+        video.addEventListener("canplay", startPlayback, { once: true });
+        startPlayback();
+      };
+      const rotate = () => {
+        video.classList.remove("is-active");
+        video.classList.add("is-leaving");
+        window.setTimeout(() => {
+          current = (current + 1) % sources.length;
+          video.pause();
+          video.classList.remove("is-leaving");
+          video.src = sources[current];
+          video.load();
+          video.classList.add("is-active");
+          video.play().catch(() => {});
+        }, 650);
+      };
+      playCurrent();
+      rotationTimer = window.setInterval(rotate, 7000);
+      window.addEventListener("pagehide", () => window.clearInterval(rotationTimer), { once: true });
     })();
   </script>
 
