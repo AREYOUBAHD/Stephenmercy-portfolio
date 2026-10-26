@@ -704,6 +704,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <a class="whatsapp-float" href="https://wa.me/254740963823?text=Hello%20Stephen%20Mercy%2C%20I%27m%20interested%20in%20booking%20you." target="_blank" rel="noopener noreferrer" aria-label="Book Stephen Mercy on WhatsApp">☏ Book on WhatsApp</a>
 
+  <div class="bumbum-player" id="bumbum-player" aria-label="BumBum Clap background music">
+    <iframe id="bumbum-player-frame" title="BumBum Clap by Stephen Mercy featuring JayWillz" width="1" height="1" src="https://www.youtube-nocookie.com/embed/DWSRyEHewtw?autoplay=1&loop=1&playlist=DWSRyEHewtw&controls=0&playsinline=1&enablejsapi=1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <button class="bumbum-sound-toggle" id="bumbum-sound-toggle" type="button" aria-label="Play BumBum Clap with sound">♫ Play BumBum Clap</button>
+  </div>
+  <style>
+    .bumbum-player{position:fixed;left:16px;bottom:16px;z-index:1000;display:flex;align-items:center;gap:8px}
+    .bumbum-player iframe{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;border:0}
+    .bumbum-sound-toggle{display:none;border:1px solid rgba(219,181,104,.7);border-radius:999px;background:rgba(15,15,15,.92);color:#f4d79b;padding:10px 14px;font:inherit;font-size:13px;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+    .bumbum-sound-toggle.is-visible{display:block}
+    @media(max-width:520px){.bumbum-player{left:10px;bottom:10px}.bumbum-sound-toggle{padding:9px 12px;font-size:12px}}
+  </style>
+  <script>
+    (() => {
+      const frame = document.getElementById("bumbum-player-frame");
+      const button = document.getElementById("bumbum-sound-toggle");
+      if (!frame || !button) return;
+      let userStarted = false;
+      let apiReady = false;
+      const showFallback = () => {
+        if (!userStarted) button.classList.add("is-visible");
+      };
+      const hideFallback = () => button.classList.remove("is-visible");
+      button.addEventListener("click", () => {
+        userStarted = true;
+        hideFallback();
+        frame.src = "https://www.youtube-nocookie.com/embed/DWSRyEHewtw?autoplay=1&loop=1&playlist=DWSRyEHewtw&controls=0&playsinline=1&enablejsapi=1";
+      });
+      window.setTimeout(showFallback, 1800);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden && !userStarted) {
+          frame.src = "https://www.youtube-nocookie.com/embed/DWSRyEHewtw?autoplay=1&loop=1&playlist=DWSRyEHewtw&controls=0&playsinline=1&enablejsapi=1";
+        }
+      });
+    })();
+  </script>
+
   <script id="video-thumbnail-generator">
     (() => {
       const videos = document.querySelectorAll('#videos .video-card video');
